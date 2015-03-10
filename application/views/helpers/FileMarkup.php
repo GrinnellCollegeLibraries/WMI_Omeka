@@ -535,6 +535,7 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
     {
         //send mp3s to the new html5audio function
         //return $this->_audio($file, $options, 'audio/mpeg');
+        //making sure this change gets tracked in git
         return $this->_html5audio($file, $options, 'audio/mpeg');
     }
     
