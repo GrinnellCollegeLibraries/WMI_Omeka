@@ -53,7 +53,7 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
         'audio/x-mp4'       => 'mp4',
         'audio/wav'         => 'wav',
         'audio/x-wav'       => 'wav',
-        'video/mp4'         => 'mov',
+        'video/mp4'         => 'mp4',
         'video/mpeg'        => 'mov',
         'video/ogg'         => 'mov',
         'video/quicktime'   => 'mov',
@@ -584,7 +584,7 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
      */
     public function mp4($file, array $options = array())
     {
-        return $this->_audio($file, $options, 'audio/mp4');
+        return $this->_html5video($file, $options, 'audio/mp4');
     }
     
     /**
@@ -613,6 +613,22 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
         $html = '<audio controls><source src="'.$path.'" type="'.$type.'">'
               . 'Your browser does not support the audio element.'
               . '</audio>'; 
+        return $html;
+    }
+    /** Added HTML5 display of video files
+     * 
+     * @param File $file
+     * @param array $options The set of default options for this includes:
+     *  width, height, autoplay, controller, loop
+     * @param string $type The Internet media type of the file
+     * @return string
+    */
+    private function _html5video($file, array $options, $type)
+    {
+        $path = html_escape($file->getWebPath('original'));
+        $html = '<video width="100%" controls><source src="'.$path.'" type="'.$type.'">'
+              . 'Your browser does not support the video element.'
+              . '</video>'; 
         return $html;
     }
     /**
