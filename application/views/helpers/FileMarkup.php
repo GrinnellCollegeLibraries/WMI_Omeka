@@ -610,9 +610,13 @@ class Omeka_View_Helper_FileMarkup extends Zend_View_Helper_Abstract
     private function _html5audio($file, array $options, $type)
     {
         $path = html_escape($file->getWebPath('original'));
-        $html = '<audio controls><source src="'.$path.'" type="'.$type.'">'
+        $dublin_files = all_element_texts($file, array('show_element_sets' => array ('Dublin Core'), 'return_type' => 'array'));
+        $html = '<div class="audio"><audio controls><source src="'.$path.'" type="'.$type.'">'
               . 'Your browser does not support the audio element.'
-              . '</audio>'; 
+              . '</audio>'
+              . '<div class="audio-metadata">'
+              . $dublin_files['Dublin Core']['Description'][0]
+              . '</div></div>';
         return $html;
     }
     /** Added HTML5 display of video files
