@@ -22,3 +22,5 @@ plugins/SolrSearch/solr-core/omeka/conf/schema.xml
 plugins/SolrSearch/solr-core/omeka/conf/schema.xml
 
 plugins/SolrSearch/solr-core/omeka/data/index/segments_1
+
+files/
