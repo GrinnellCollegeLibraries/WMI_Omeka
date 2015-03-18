@@ -47,8 +47,6 @@ class Omeka_File_Derivative_Strategy_ExternalImageMagick
             escapeshellarg($destPath)
         ));
         
-        _log("ImageMagick will run cmd: $cmd ", Zend_Log::ERR);
-
         self::executeCommand($cmd, $status, $output, $errors);
 
         if (!empty($errors)) {
@@ -101,7 +99,8 @@ class Omeka_File_Derivative_Strategy_ExternalImageMagick
         if ($type != 'square_thumbnail') {
             return '-background white -flatten -thumbnail ' . escapeshellarg("{$constraint}x{$constraint}>");
         } else {
-            return "-thumbnail '200x200>' -page +8+8 -alpha set \( +clone -background none -shadow 60x4+0+0 \) +swap -mosaic -define jpeg:size=200x200  bkgnd.gif +swap -gravity center -composite";
+            $pathToBkgndImg = "/Applications/MAMP/htdocs/wmi/files/square_thumbnails/bkgnd.gif";
+            return "-thumbnail '200x200>' -page +8+8 -alpha set \( +clone -background none -shadow 60x4+0+0 \) +swap -mosaic -define jpeg:size=200x200 ".$pathToBkgndImg." +swap -gravity center -composite";
         }
     }
 
