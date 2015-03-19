@@ -7,20 +7,8 @@ application/config/config.ini
 
 application/logs/errors.log
 
-plugins/DerivativeImages/controllers/IndexController.php
+plugins/DerivativeImages/
 
-plugins/DerivativeImages/DerivativeImagesPlugin.php
-
-plugins/DerivativeImages/models/DerivativeImagesJob.php
-
-plugins/DerivativeImages/plugin.ini
-
-plugins/DerivativeImages/views/admin/index/index.php
-
-plugins/SolrSearch/solr-core/omeka/conf/schema.xml
-
-plugins/SolrSearch/solr-core/omeka/conf/schema.xml
-
-plugins/SolrSearch/solr-core/omeka/data/index/segments_1
+plugins/SolrSearch/
 
 files/
